@@ -9,10 +9,17 @@ public class Location {
 		
 	}
 	
+//	public void setInitialLocation(int x, int y) {
+//		double doubleX =  Math.random()*x;
+//		xLocation = (int) doubleX;
+//		double doubleY =  Math.random()*y;
+//		yLocation = (int) doubleY;
+//	}
+	
 	public void setInitialLocation() {
-		double doubleX =  Math.random()*5;
+		double doubleX =  Math.random()*10;
 		xLocation = (int) doubleX;
-		double doubleY =  Math.random()*5;
+		double doubleY =  Math.random()*10;
 		yLocation = (int) doubleY;
 	}
 	
