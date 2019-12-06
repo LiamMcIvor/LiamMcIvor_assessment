@@ -1,48 +1,51 @@
 package main;
 
 import java.awt.Component;
-//import java.util.Scanner;
+import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
 public class GameLoop {
 
-//	private int xMax;
-//	private int yMax;
+	private int xMax;
+	private int yMax;
 	private boolean playing = true;
 	Player player = new Player();
 	Compass compass = new Compass();
 	Item item = new Item();
 	
-//	Scanner scan = new Scanner(System.in);
-	
-//	public void initializeObjects() {
-//		player.setInitialLocation(xMax, yMax);
-//		item.setInitialLocation(xMax, yMax);
-//		if(compass.distanceToItem(player.getXLocation(), player.getYLocation(), item.getXLocation(), item.getYLocation())==0.0) {
-//			player.setInitialLocation(xMax, yMax);
-//			item.setInitialLocation(xMax, yMax);
-//		}
-//	}
-	
-//	public void setSize() {
-//		System.out.println("Set Max X-Co-Ordinate");
-//		xMax = scan.nextInt();
-//		System.out.println("Set Max Y-Co-Ordinate");
-//		yMax = scan.nextInt();
-//		scan.close();
-//		scan.reset();
-//	}
-//	
+	Scanner scan = new Scanner(System.in);
 	
 	public void initializeObjects() {
-		player.setInitialLocation();
-		item.setInitialLocation();
+		scan.close();
+		player.setInitialLocation(xMax, yMax);
+		item.setInitialLocation(xMax, yMax);
 		if(compass.distanceToItem(player.getXLocation(), player.getYLocation(), item.getXLocation(), item.getYLocation())==0.0) {
-			player.setInitialLocation();
-			item.setInitialLocation();
+			player.setInitialLocation(xMax, yMax);
+			item.setInitialLocation(xMax, yMax);
 		}
 	}
+	
+	public void setSize() {
+		System.out.println("Set Max X-Co-Ordinate");
+		xMax = scan.nextInt();
+		System.out.println("Set Max Y-Co-Ordinate");
+		yMax = scan.nextInt();
+		scan.close();
+		initializeObjects();
+		loop();
+//		scan.reset();
+	}
+	
+	
+//	public void initializeObjects() {
+//		player.setInitialLocation();
+//		item.setInitialLocation();
+//		if(compass.distanceToItem(player.getXLocation(), player.getYLocation(), item.getXLocation(), item.getYLocation())==0.0) {
+//			player.setInitialLocation();
+//			item.setInitialLocation();
+//		}
+//	}
 	
 	public void loop() {
 		Component frame = null;
